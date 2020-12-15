@@ -1,4 +1,4 @@
-Work in progress!
+// Work in progress!
 const findSeat = (code) => {
   const row = 70;
   const column = 7;
