@@ -73,15 +73,16 @@ const allAllergens = [
 
 /*
 I can deduce the following allergen - ingredient combos from the logs above
-
-'soy', bvcrrfbr
-'fish', xhrdsl
-'nuts', vndrb
-'sesame', lbnmsr
-'dairy', bcdgf 
-'wheat', xcgtv
-'peanuts', dhbxtb 
-'shellfish', scxxn
+[
+['soy', 'bvcrrfbr'],
+['fish', 'xhrdsl'],
+['nuts', 'vndrb'],
+['sesame', 'lbnmsr'],
+['dairy', 'bcdgf' ],
+['wheat', 'xcgtv'],
+['peanuts', 'dhbxtb' ],
+['shellfish', 'scxxn'],
+]
 */
 
 const answerOne = formattedFoods
@@ -101,3 +102,6 @@ const answerOne = formattedFoods
   .reduce((acc, cur) => acc + cur.length, 0);
 
 console.log(answerOne);
+
+// just formatted from the comment above
+const answerTwo = "bcdgf,xhrdsl,vndrb,dhbxtb,lbnmsr,scxxn,bvcrrfbr,xcgtv";
