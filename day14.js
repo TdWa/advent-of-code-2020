@@ -594,15 +594,15 @@ for (let i = 1; i < program.length; i++) {
   if (program[i][0] === "mask") {
     mask = program[i][1];
   } else {
-    const binaryIndex = Number((program[i][0].match(/[0-9]/g) || []).join(""))
+    const binaryKey = Number((program[i][0].match(/[0-9]/g) || []).join(""))
       .toString(2)
       .padStart(36, "0");
 
-    const maskedIndex = binaryIndex
+    const maskedKey = binaryKey
       .split("")
       .map((bit, i) => (mask[i] === "0" ? bit : mask[i]));
 
-    const xAmount = maskedIndex.reduce(
+    const xAmount = maskedKey.reduce(
       (acc, cur) => (cur === "X" ? acc + 1 : acc),
       0
     );
@@ -621,16 +621,16 @@ for (let i = 1; i < program.length; i++) {
 
     getCombos(xAmount);
 
-    const indices = combos.map((combo) => {
-      const binaryIndex = [...maskedIndex];
+    const keys = combos.map((combo) => {
+      const binaryKey = [...maskedKey];
       for (let i = 0; i < xAmount; i++) {
-        binaryIndex[binaryIndex.indexOf("X")] = combo[i];
+        binaryKey[binaryKey.indexOf("X")] = combo[i];
       }
-      return binaryIndex.join("");
+      return binaryKey.join("");
     });
 
-    indices.forEach((index) => {
-      mem[index] = Number(program[i][1]);
+    keys.forEach((key) => {
+      mem[key] = Number(program[i][1]);
     });
   }
 }
