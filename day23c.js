@@ -6,10 +6,9 @@ for (let i = 10; i < 1000001; i++) {
 }
 
 const cups = new Map();
-for (let i = 0; i < input.length; i++) {
-  i === input.length - 1
-    ? cups.set(input[i], input[0])
-    : cups.set(input[i], input[i + 1]);
+cups.set(input[input.length - 1], input[0]);
+for (let i = 0; i < input.length - 1; i++) {
+  cups.set(input[i], input[i + 1]);
 }
 
 const before = Date.now();
